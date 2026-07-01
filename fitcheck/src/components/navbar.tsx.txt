@@ -1,0 +1,12 @@
+import Link from 'next/link';
+
+export default function Navbar() {
+  return (
+    <nav style={{ position: 'fixed', bottom: 0, width: '100%', display: 'flex', justifyContent: 'space-around', padding: '1rem', background: '#fff', borderTop: '1px solid #ccc' }}>
+      <Link href="/closet">Closet</Link>
+      <Link href="/add">Add</Link>
+      <Link href="/stylist">Stylist</Link>
+      <Link href="/profile">Profile</Link>
+    </nav>
+  );
+}
