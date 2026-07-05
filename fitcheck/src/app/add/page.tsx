@@ -8,6 +8,7 @@ import Navbar from "../../components/Navbar";
 export default function AddItemPage() {
   const [itemName, setItemName] = useState("");
   const [itemCategory, setItemCategory] = useState("Tops");
+  const [itemVibe, setItemVibe] = useState("Daily Wear"); 
   const [imageFile, setImageFile] = useState<File | null>(null);
   const [loading, setLoading] = useState(false);
 
@@ -110,17 +111,34 @@ export default function AddItemPage() {
               Category
             </label>
             <select 
-              value={itemCategory}
-              onChange={(e) => setItemCategory(e.target.value)}
-              style={{ width: "100%", padding: "0.75rem", borderRadius: "var(--radius-sm)", border: "1px solid var(--border-color)", backgroundColor: "#fff", outline: "none" }}
-            >
-              <option value="Tops">Tops</option>
-              <option value="Bottoms">Bottoms</option>
-              <option value="Footwear">Footwear</option>
-              <option value="Outerwear">Outerwear</option>
-              <option value="Accessories">Accessories</option>
-            </select>
+            value={itemCategory}
+            onChange={(e) => setItemCategory(e.target.value)}
+            style={{ width: "100%", padding: "0.75rem", borderRadius: "var(--radius-sm)", border: "1px solid var(--border-color)", backgroundColor: "#fff", outline: "none" }}
+             >
+            <option value="Tops">Tops (T-Shirts, Shirts, Blouses)</option>
+            <option value="Bottoms">Bottoms (Jeans, Pants, Skirts)</option>
+             <option value="Dresses">Dresses & Jumpsuits</option>
+           <option value="Kurti & Ethnic">Kurti & Ethnic Sets</option>
+            <option value="Outerwear">Outerwear (Jackets, Pullovers)</option>
+           <option value="Activewear">Activewear & Lounge</option>
+             <option value="Footwear">Footwear</option>
+            <option value="Accessories">Accessories</option>
+            </select>         
           </div>
+
+           <select 
+  value={itemVibe}
+  onChange={(e) => setItemVibe(e.target.value)}
+  style={{ width: "100%", padding: "0.75rem", borderRadius: "var(--radius-sm)", border: "1px solid var(--border-color)", backgroundColor: "#fff", outline: "none" }}
+>
+  <option value="Campus Casual">Campus Casual (Classes / Daily)</option>
+  <option value="Streetwear">Streetwear / Aesthetic</option>
+  <option value="Indo-Western">Indo-Western Fusion</option>
+  <option value="Smart Casual">Smart Casual (Presentations / Events)</option>
+  <option value="Festive">Festive (Traditional / Heavy)</option>
+  <option value="Night Out">Night Out</option>
+  <option value="Lounge">Lounge / Home</option>
+</select>
 
           {/* NEW: File Upload / Camera Input */}
           <div>

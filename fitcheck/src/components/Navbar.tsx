@@ -6,72 +6,57 @@ import { usePathname } from "next/navigation";
 export default function Navbar() {
   const pathname = usePathname();
 
+  // Define our navigation links and cute emojis
   const navItems = [
-    { name: "Closet", path: "/closet", icon: "🧥" },
-    { name: "Add", path: "/add", icon: "＋" },
-    { name: "Stylist", path: "/stylist", icon: "✨" },
-    { name: "Critic", path: "/critic", icon: "👑" },
-    { name: "Profile", path: "/profile", icon: "👤" },
+    { name: "Closet", path: "/closet", emoji: "👗" },
+    { name: "Add", path: "/add", emoji: "✨" },
+    { name: "Profile", path: "/profile", emoji: "🎀" }
   ];
 
   return (
-    <div style={{
+    <nav style={{
       position: "fixed",
-      bottom: "24px",
+      bottom: "2rem", // Floats slightly above the bottom of the screen
       left: "50%",
-      transform: "translateX(-50%)",
-      width: "90%",
-      maxWidth: "450px",
-      background: "rgba(255, 255, 255, 0.85)",
-      backdropFilter: "blur(12px)",
-      WebkitBackdropFilter: "blur(12px)",
-      border: "1px solid rgba(234, 232, 228, 0.7)",
-      borderRadius: "24px",
-      padding: "10px 16px",
-      boxShadow: "0 8px 32px rgba(0, 0, 0, 0.05)",
-      zIndex: 9999,
+      transform: "translateX(-50%)", // Perfectly centers it
+      display: "flex",
+      gap: "2rem",
+      padding: "0.75rem 2rem",
+      background: "rgba(255, 255, 255, 0.7)", // Frosted glass!
+      backdropFilter: "blur(16px)",
+      WebkitBackdropFilter: "blur(16px)", // For Safari support
+      borderRadius: "999px", // Makes it a perfect pill shape
+      boxShadow: "0 8px 32px rgba(255, 182, 193, 0.3)", // Soft pink shadow
+      border: "1.5px solid rgba(255, 255, 255, 0.9)",
+      zIndex: 1000 // Ensures it stays on top of your clothes
     }}>
-      <nav style={{
-        display: "flex",
-        justifyContent: "space-around",
-        alignItems: "center"
-      }}>
-        {navItems.map((item) => {
-          const isActive = pathname === item.path;
-          return (
-            <Link 
-              key={item.path} 
-              href={item.path}
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "center",
-                textDecoration: "none",
-                gap: "4px",
-                padding: "6px 12px",
-                borderRadius: "14px",
-                backgroundColor: isActive ? "#111" : "transparent",
-                transition: "all 0.25s cubic-bezier(0.4, 0, 0.2, 1)",
-              }}
-            >
+      {navItems.map((item) => {
+        const isActive = pathname === item.path;
+
+        return (
+          <Link href={item.path} key={item.name} style={{ textDecoration: "none" }}>
+            <div style={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              gap: "0.25rem",
+              // If we are on this page, make it deep pink. Otherwise, muted mauve.
+              color: isActive ? "#d81b60" : "#887a8c",
+              transition: "all 0.2s ease",
+              transform: isActive ? "scale(1.1)" : "scale(1)" // Slight pop effect when active!
+            }}>
+              <span style={{ fontSize: "1.25rem" }}>{item.emoji}</span>
               <span style={{ 
-                fontSize: "1.2rem",
-                filter: isActive ? "brightness(1) invert(1)" : "none"
-              }}>
-                {item.icon}
-              </span>
-              <span style={{
-                fontSize: "10px",
-                fontWeight: isActive ? "600" : "500",
-                color: isActive ? "#fff" : "#6b7280",
+                fontSize: "0.7rem", 
+                fontWeight: isActive ? "700" : "500",
                 letterSpacing: "0.02em"
               }}>
                 {item.name}
               </span>
-            </Link>
-          );
-        })}
-      </nav>
-    </div>
+            </div>
+          </Link>
+        );
+      })}
+    </nav>
   );
 }

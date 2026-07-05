@@ -2,18 +2,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
 
 :root {
-  --bg-primary: #faf9f6;       /* Soft luxury off-white/alabaster */
-  --text-primary: #111111;     /* Deep rich charcoal black */
-  --text-secondary: #6b7280;   /* Muted elegant slate gray */
-  --accent: #111111;           /* True high-fashion accent */
-  --card-bg: #ffffff;          /* Crisp pure white for item blocks */
-  --border-color: #eae8e4;     /* Subtle warm border border */
-  --radius-sm: 8px;
+  /* 💖 Updated to the Soft Girl Palette 💖 */
+  --bg-primary: #fff0f5;       /* Soft blush pink fallback */
+  --text-primary: #5a4b59;     /* Warm dark purple-gray */
+  --text-secondary: #887a8c;   /* Muted elegant mauve */
+  --accent: #d81b60;           /* Deep cute pink */
+  --card-bg: rgba(255, 255, 255, 0.6); /* Frosted glass white */
+  --border-color: #fecdd3;     /* Soft rose border */
+  --radius-sm: 12px;
   --radius-md: 16px;
   --radius-lg: 24px;
 }
 
-/* Elegant smooth scroll and resets */
 * {
   box-sizing: border-box;
   padding: 0;
@@ -23,10 +23,16 @@
 }
 
 body {
-  background-color: var(--bg-primary);
+  /* A super soft blush pink to light lavender gradient */
+  background: linear-gradient(135deg, #fff0f5 0%, #f4e6ff 100%);
+  background-attachment: fixed; /* Keeps the gradient smooth when scrolling */
   color: var(--text-primary);
   min-height: 100vh;
-  overflow-x: hidden;
+}
+
+/* Hides the scrollbar for a clean, native app feel */
+::-webkit-scrollbar {
+  display: none;
 }
 
 /* Custom soft input styling across the app */
@@ -39,4 +45,16 @@ input, select, button {
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(8px); }
   to { opacity: 1; transform: translateY(0); }
+}
+
+.clothing-card {
+  break-inside: avoid;
+  margin-bottom: 1rem;
+  border-radius: 24px; /* Extra bubbly and round! */
+  background: rgba(255, 255, 255, 0.6); /* Semi-transparent white */
+  backdrop-filter: blur(12px); /* The frosted glass effect */
+  border: 1.5px solid rgba(255, 255, 255, 0.9); /* Subtle glowing edge */
+  box-shadow: 0 8px 32px rgba(255, 182, 193, 0.25); /* Cute pink-tinted shadow */
+  overflow: hidden;
+  padding: 8px;
 }
