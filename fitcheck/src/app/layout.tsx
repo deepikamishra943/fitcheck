@@ -1,23 +1,19 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
-import Navbar from "../components/Navbar";
-
-const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
-const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"] });
+import "./globals.css"; // 💖 THIS IS THE CRITICAL LINE THAT LOADS YOUR STYLES!
 
 export const metadata: Metadata = {
-  title: "FitCheck",
-  description: "My Digital Wardrobe",
+  title: "My Closet ✨",
+  description: "Your curated physical collection, digitized.",
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen flex flex-col`}>
-        <main className="flex-grow">{children}</main>
-        <Navbar />
-      </body>
+      <body>{children}</body>
     </html>
   );
 }
